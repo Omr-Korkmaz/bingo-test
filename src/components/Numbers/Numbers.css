@@ -1,0 +1,27 @@
+.drawn-numbers-container {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 80vw;
+}
+
+.drawn-numbers-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+.drawn-number {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  width: 20px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.drawn-number.matched {
+  background-color: blue;
+  color: white;
+}
