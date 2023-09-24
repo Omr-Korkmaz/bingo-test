@@ -1,0 +1,43 @@
+
+
+/* Style the individual bingo boards */
+.bingo-board {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  max-width: 25vw;
+
+}
+
+h2 {
+  background-color: blue;
+
+  text-align: center;
+}
+
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); 
+  grid-gap: 5px; 
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); 
+  grid-gap: 5px; 
+}
+
+.board-cell {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  border-radius: 10px; 
+}
+
+.board-cell.matched {
+  background-color: blue;
+  color: white;
+}
