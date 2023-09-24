@@ -1,0 +1,21 @@
+
+
+.drawnumber-button {
+
+    background-color: orange;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.2s;
+    cursor: pointer;}
+    .drawnumber-button:hover {
+    background-color: rgb(255, 137, 2);
+  
+}
+
+.winner-text{
+  color: blueviolet;
+  font-size: 2rem;
+}

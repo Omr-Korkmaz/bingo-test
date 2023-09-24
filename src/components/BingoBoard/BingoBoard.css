@@ -1,4 +1,14 @@
 
+td.matched {
+  background-color: blue; /* Default color for matched numbers */
+}
+
+
+
+/* Style the winning board */
+.winner {
+  background-color: lightgreen;
+}
 
 /* Style the individual bingo boards */
 .bingo-board {
@@ -10,11 +20,7 @@
 
 }
 
-h2 {
-  background-color: blue;
 
-  text-align: center;
-}
 
 
 .board-grid {

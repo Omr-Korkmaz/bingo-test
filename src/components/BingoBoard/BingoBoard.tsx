@@ -4,11 +4,12 @@ import './BingoBoard.css';
 interface Props {
   board: number[][];
   markedNumbers: boolean[][];
+  isWinner: boolean;
 }
 
-const BingoBoard: React.FC<Props> = ({ board, markedNumbers }) => {
+const BingoBoard: React.FC<Props> = ({ board, markedNumbers, isWinner }) => {
   return (
-    <div className={`bingo-board`}>
+    <div className={`bingo-board ${isWinner ? 'winner' : ''}`}>
       <h2>Bingo Board</h2>
       <div className="board-grid">
         {board.map((row, rowIndex) => (
