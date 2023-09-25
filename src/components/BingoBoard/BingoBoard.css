@@ -1,9 +1,7 @@
-
 td.matched {
-  background-color: blue; /* Default color for matched numbers */
+  background-color: blue;
+  /* Default color for matched numbers */
 }
-
-
 
 /* Style the winning board */
 .winner {
@@ -16,23 +14,21 @@ td.matched {
   padding: 20px;
   margin: 20px;
   border-radius: 5px;
-  max-width: 25vw;
+
+  min-width: 300px;
 
 }
 
-
-
-
 .board-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); 
-  grid-gap: 5px; 
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  grid-gap: 5px;
 }
 
 .board-row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); 
-  grid-gap: 5px; 
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  grid-gap: 5px;
 }
 
 .board-cell {
@@ -40,7 +36,7 @@ td.matched {
   padding: 10px;
   border: 1px solid #ccc;
   background-color: transparent;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .board-cell.matched {

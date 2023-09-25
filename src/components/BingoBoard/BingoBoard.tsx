@@ -5,12 +5,14 @@ interface Props {
   board: number[][];
   markedNumbers: boolean[][];
   isWinner: boolean;
+  boardNumber: number; // Add a prop for the board number
+
 }
 
-const BingoBoard: React.FC<Props> = ({ board, markedNumbers, isWinner }) => {
+const BingoBoard: React.FC<Props> = ({ board, markedNumbers, isWinner, boardNumber }) => {
   return (
     <div className={`bingo-board ${isWinner ? 'winner' : ''}`}>
-      <h2>Bingo Board</h2>
+      <h2>Bingo Board {boardNumber} </h2>
       <div className="board-grid">
         {board.map((row, rowIndex) => (
           <div key={rowIndex} className="board-row">
