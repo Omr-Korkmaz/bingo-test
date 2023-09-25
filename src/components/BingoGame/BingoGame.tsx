@@ -52,8 +52,6 @@ const BingoGame: React.FC = () => {
     return score;
   };
 
-
-
   const drawNextNumber = (): void => {
     if (!gameFinished && currentNumberIndex < numbersToDraw.length) {
       const drawnNumber = numbersToDraw[currentNumberIndex];
@@ -80,8 +78,8 @@ const BingoGame: React.FC = () => {
                 const score = calculateBoardScore(i, drawnNumber);
                 console.log(`Board ${i + 1} wins with a score of ${score}`);
                 setResultText(`Board ${i + 1} wins with a score of ${score}`);
-                console.log(score)
-
+                console.log(score);
+                console.log("dasdasd",resultText)
               }
             }
           }
@@ -89,41 +87,42 @@ const BingoGame: React.FC = () => {
         // Check if all boards have won
         if (winningBoards.length === boardsData.length - 1) {
           setGameFinished(true);
-
         }
       }
     }
   };
-  console.log("game is finished", gameFinished)
+  console.log("game is finished", gameFinished);
 
   return (
-    <div className="container">
-      <h1>Bingo Assignment - Omer Korkmaz</h1>
+    <div className="bingo">
+      <h1 className="bingo__title">Bingo Assignment - Omer Korkmaz</h1>
+
+      <h1 data-testid="score"> this{resultText}</h1>
       <Numbers numbers={numbersToDraw} drawnNumbers={drawnNumbers} />
       {winningBoards.length === boardsData.length ? (
-        <h1 className="winner-text" data-testid="my-element" >
+        <h1 className="bingo__winner-text" data-testid="score">
           All boards have won! The last one is {resultText}
         </h1>
       ) : (
-        <p>Still, there are more boards waiting to win</p>
+        <p className="bingo__info">Still, there are more boards waiting to win</p>
       )}
-      <div className="button-container">
+      <div className="bingo__button-container">
         <button
-          className="drawnumber-button"
+          className="bingo__drawnumber-button"
           onClick={drawNextNumber}
           disabled={gameFinished} // Disable the button when the game is finished
         >
           Draw Next Number
         </button>
       </div>
-      <div className="boards-container">
+      <div className="bingo__boards-container">
         {boardsData.map((board, index) => (
           <BingoBoard
             key={index}
             board={board}
             markedNumbers={markedNumbers[index]}
             isWinner={winningBoards.includes(index)}
-            boardNumber={index + 1} // Pass the board number here
+            boardNumber={index + 1} // Pass the board ID
           />
         ))}
       </div>

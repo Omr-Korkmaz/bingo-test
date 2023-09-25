@@ -4,7 +4,7 @@
   max-width: 80vw;
 }
 
-.drawn-numbers-list {
+.drawn-numbers__list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

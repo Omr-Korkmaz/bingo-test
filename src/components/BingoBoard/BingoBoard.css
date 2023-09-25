@@ -1,14 +1,3 @@
-td.matched {
-  background-color: blue;
-  /* Default color for matched numbers */
-}
-
-/* Style the winning board */
-.winner {
-  background-color: lightgreen;
-}
-
-/* Style the individual bingo boards */
 .bingo-board {
   border: 1px solid #ccc;
   padding: 20px;
@@ -17,19 +6,24 @@ td.matched {
   min-width: 300px;
 }
 
-.board-grid {
+.bingo-board__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.bingo-board__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   grid-gap: 5px;
 }
 
-.board-row {
+.bingo-board__row {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   grid-gap: 5px;
 }
 
-.board-cell {
+.bingo-board__cell {
   text-align: center;
   padding: 10px;
   border: 1px solid #ccc;
@@ -37,7 +31,12 @@ td.matched {
   border-radius: 10px;
 }
 
-.board-cell.matched {
+.bingo-board__cell--matched {
   background-color: blue;
   color: white;
+}
+
+/* Style the winning board */
+.bingo-board--winner {
+  background-color: lightgreen;
 }

@@ -1,31 +1,49 @@
-
-
-.drawnumber-button {
-    background-color: orange;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    font-size: 18px;
-    transition: background-color 0.2s;
-    cursor: pointer;}
-    .drawnumber-button:hover {
-    background-color: rgb(255, 137, 2); 
-}
-
-.container {
+/* Style the BingoGame component */
+.bingo {
   text-align: center;
   margin: 0 auto;
 }
 
-.boards-container{
+/* Style the title within BingoGame */
+.bingo__title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Style the info paragraph within BingoGame */
+.bingo__info {
+  font-size: 18px;
+}
+
+/* Style the button container within BingoGame */
+.bingo__button-container {
+  margin-top: 20px;
+}
+
+/* Style the "Draw Next Number" button within BingoGame */
+.bingo__drawnumber-button {
+  background-color: orange;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.bingo__drawnumber-button:hover {
+  background-color: rgb(255, 137, 2);
+}
+
+.bingo__boards-container {
   justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
 
-.winner-text{
+.bingo__winner-text {
   color: blueviolet;
   font-size: 2rem;
 }
