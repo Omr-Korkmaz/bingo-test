@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import BingoBoard from '../BingoBoard/BingoBoard';
 import Numbers from '../Numbers/Numbers';
 import { boardsData, numbersToDraw } from '../../data/BingoData';
@@ -52,54 +52,58 @@ const BingoGame: React.FC = () => {
     return score;
   };
 
+
+
   const drawNextNumber = (): void => {
-  if (!gameFinished && currentNumberIndex < numbersToDraw.length) {
-    const drawnNumber = numbersToDraw[currentNumberIndex];
-    setCurrentNumberIndex(currentNumberIndex + 1);
+    if (!gameFinished && currentNumberIndex < numbersToDraw.length) {
+      const drawnNumber = numbersToDraw[currentNumberIndex];
+      setCurrentNumberIndex(currentNumberIndex + 1);
 
-    // Update the list of drawn numbers
-    setDrawnNumbers((prevNumbers) => [...prevNumbers, drawnNumber]);
+      // Update the list of drawn numbers
+      setDrawnNumbers((prevNumbers) => [...prevNumbers, drawnNumber]);
 
-    for (let i = 0; i < boardsData.length; i++) {
-      if (winningBoards.includes(i)) {
-        continue;
-      }
+      for (let i = 0; i < boardsData.length; i++) {
+        if (winningBoards.includes(i)) {
+          continue;
+        }
 
-      for (let row = 0; row < boardsData[i].length; row++) {
-        for (let col = 0; col < boardsData[i][row].length; col++) {
-          if (boardsData[i][row][col] === drawnNumber) {
-            const updatedMarkedNumbers = [...markedNumbers];
-            updatedMarkedNumbers[i][row][col] = true;
-            setMarkedNumbers(updatedMarkedNumbers);
+        for (let row = 0; row < boardsData[i].length; row++) {
+          for (let col = 0; col < boardsData[i][row].length; col++) {
+            if (boardsData[i][row][col] === drawnNumber) {
+              const updatedMarkedNumbers = [...markedNumbers];
+              updatedMarkedNumbers[i][row][col] = true;
+              setMarkedNumbers(updatedMarkedNumbers);
 
-            if (checkBingo(updatedMarkedNumbers[i])) {
-              setWinningBoards((prevWinningBoards) => [...prevWinningBoards, i]);
+              if (checkBingo(updatedMarkedNumbers[i])) {
+                setWinningBoards((prevWinningBoards) => [...prevWinningBoards, i]);
 
-              const score = calculateBoardScore(i, drawnNumber);
-              console.log(`Board ${i + 1} wins with a score of ${score}`);
-              setResultText(`Board ${i + 1} wins with a score of ${score}`);
+                const score = calculateBoardScore(i, drawnNumber);
+                console.log(`Board ${i + 1} wins with a score of ${score}`);
+                setResultText(`Board ${i + 1} wins with a score of ${score}`);
+                console.log(score)
+
+              }
             }
           }
         }
-      }
+        // Check if all boards have won
+        if (winningBoards.length === boardsData.length - 1) {
+          setGameFinished(true);
 
-      // Check if all boards have won
-      if (winningBoards.length === boardsData.length) {
-        setGameFinished(true);
+        }
       }
     }
-  }
-};
-
+  };
+  console.log("game is finished", gameFinished)
 
   return (
     <div className="container">
       <h1>Bingo Assignment - Omer Korkmaz</h1>
       <Numbers numbers={numbersToDraw} drawnNumbers={drawnNumbers} />
       {winningBoards.length === boardsData.length ? (
-        <p className="winner-text">
-          All boards have won! The last one is {resultText}{' '}
-        </p>
+        <h1 className="winner-text" data-testid="my-element" >
+          All boards have won! The last one is {resultText}
+        </h1>
       ) : (
         <p>Still, there are more boards waiting to win</p>
       )}
@@ -114,13 +118,13 @@ const BingoGame: React.FC = () => {
       </div>
       <div className="boards-container">
         {boardsData.map((board, index) => (
-         <BingoBoard
-         key={index}
-         board={board}
-         markedNumbers={markedNumbers[index]}
-         isWinner={winningBoards.includes(index)}
-         boardNumber={index + 1} // Pass the board number here
-       />
+          <BingoBoard
+            key={index}
+            board={board}
+            markedNumbers={markedNumbers[index]}
+            isWinner={winningBoards.includes(index)}
+            boardNumber={index + 1} // Pass the board number here
+          />
         ))}
       </div>
     </div>

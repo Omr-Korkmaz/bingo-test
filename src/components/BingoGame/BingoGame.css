@@ -1,7 +1,6 @@
 
 
 .drawnumber-button {
-
     background-color: orange;
     border: 1px solid #ccc;
     padding: 10px;
@@ -11,15 +10,14 @@
     transition: background-color 0.2s;
     cursor: pointer;}
     .drawnumber-button:hover {
-    background-color: rgb(255, 137, 2);
-  
+    background-color: rgb(255, 137, 2); 
 }
+
 .container {
   text-align: center;
   margin: 0 auto;
-
-  
 }
+
 .boards-container{
   justify-content: center;
   align-items: center;

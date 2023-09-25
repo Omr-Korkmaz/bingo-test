@@ -5,7 +5,7 @@ interface Props {
   board: number[][];
   markedNumbers: boolean[][];
   isWinner: boolean;
-  boardNumber: number; // Add a prop for the board number
+  boardNumber: number; // Add a prop for the board number like id
 
 }
 
